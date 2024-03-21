@@ -108,6 +108,7 @@ export class HomepageComponent implements OnInit , OnDestroy {
 
   // SCROLL TO PRODUCT DETAILS PAGE
   navigateToProductDetails(productId: string) {
+    this.router.navigate(['/ProductsDetails', productId]);
   }
   // SCROLL TO PRODUCT DETAILS PAGE
 }

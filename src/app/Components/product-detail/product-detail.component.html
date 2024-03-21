@@ -1,0 +1,59 @@
+<ng-container *ngIf="productDetailsObject">
+    <div class="headerClass p-1 d-flex align-items-center  justify-content-between" (click)="goBack()">
+        <div class="d-flex ms-1 gapTen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"
+                    d="M328 112L184 256l144 144" />
+            </svg>
+            <span class="ms-2">Back</span>
+        </div>
+    </div>
+    <div class="marginSix p-4 col-12 flexClass">
+       <div class="col-lg-4 col-sm-12 col-md-4 col-xs-12  backgroundSet">
+                <img class="imageClass" [lazyLoad]="productDetailsObject.image ||  '../../../assets/images/placeholder.png'">
+       </div>
+       <div class="d-flex gap20 flex-column col-lg-8 paddingSet col-sm-12 col-md-8 col-xs-12">
+            <div class="productName pt-4 d-flex justify-content-start align-items-center">
+                        {{productDetailsObject.name}}
+            </div>
+            <div class="paddingTop">
+                <span class="fontSpecies">Gender:&nbsp;</span>
+                <span class="SecondarySpecies">{{productDetailsObject.gender}}</span>
+            </div>
+            <div class="">
+                <span class="fontSpecies">Location:&nbsp;</span>
+                <span class="SecondarySpecies">{{productDetailsObject.location.name}}</span>
+            </div>
+            <div class="">
+                <span class="fontSpecies">Species:&nbsp;</span>
+                <span class="SecondarySpecies">{{productDetailsObject.species}}</span>
+            </div>
+            <div class="">
+                <span class="fontSpecies">Status:&nbsp;</span>
+                <span class="SecondarySpecies">{{productDetailsObject.status}}</span>
+            </div>
+            <div (click)="showEpisode()" *ngIf="productDetailsObject.episode && productDetailsObject.episode.length">
+                <span  class="fontSpecies underlineText">See All Episodes&nbsp;</span>
+            </div>
+       </div>
+    </div>
+</ng-container>
+
+
+<p-dialog header="Episodes" [(visible)]="showEpisodeModal" [modal]="true"  [draggable]="false" [resizable]="false">
+    <ng-container *ngIf="productDetailsObject && productDetailsObject.episode && productDetailsObject.episode.length">
+        <div class="d-flex align-items-center gap20" *ngFor="let episode of productDetailsObject.episode;let i = index">
+            <div class="episodeClass">
+                {{i+1}}.
+                {{episode.name}}
+            </div>
+    </div>
+    </ng-container>
+</p-dialog>
+
+
+<div *ngIf="Referhloading" class="loaderDiv" >
+    <span class="loader"></span>
+</div>
+
+<p-toast></p-toast>
