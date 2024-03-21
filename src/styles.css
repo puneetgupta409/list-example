@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/css/variable.scss";
+@import "./assets/css/loader.scss";
+html,
+body {
+    height: 100%;
+
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two equal-width columns */
+    gap: 1.5rem;
+    /* Gap between columns */
+}
+
+.box {
+    /* background-color: #e0e0e0; */
+    /* padding: 1.5rem; */
+    text-align: center;
+}
+
+.genTen{
+    gap: 10px;
+}

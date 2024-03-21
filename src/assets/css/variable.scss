@@ -1,0 +1,19 @@
+$default-color-blue: var(--default-blue-color);
+$color-default-white: var(--default-white);
+$color-default-black: var(--default-black);
+$color-secondary-grey: var(--secondary-grey);
+$color-neutrals-gray-100: var(--neutrals-gray-100);
+$color-neutrals-gray-200: var(--neutrals-gray-200);
+$color-neutrals-gray-300: var(--neutrals-gray-300);
+$status-color-danger:  var(--status-color-danger);
+:root {
+    --default-blue-color: #0D6EFD;
+    --default-white: #ffffff;
+    --default-black: #000000;
+    --secondary-grey: #6C757D;
+    --neutrals-gray-100: #F8F9FA;
+    --neutrals-gray-200: #ADB5BD;
+    --neutrals-gray-300: #343A40;
+    --status-color-danger: #DC3545;
+    --neutral-neutral-8: #636363;
+}

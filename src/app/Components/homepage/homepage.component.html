@@ -1,0 +1,58 @@
+<!-- TOP HEADER  -->
+<div class="headerClass d-flex align-items-center justify-content-between">
+    <div>
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText [(ngModel)]="searchValue" (ngModelChange)="onSearchChange($event)" class="minWidth" placeholder="Search" />
+        </span>
+    </div>
+    <div class="d-flex align-items-center gapTen">
+        <div class="displaySet">
+            <img  class="imageProfile" src="../../../assets/images/profile_image.png">
+        </div>
+    </div>
+</div>
+<!-- TOP HEADER  -->
+
+<!-- SHOW THE RESULT OF CHARACTERS LIST  -->
+<div class="marginSix p-4 d-flex align-items-center  flex-wrap" *ngIf="characterList && characterList.length" >
+        <div class="childDiv" *ngFor="let item of characterList" (click)="navigateToProductDetails(item.id)">
+               <div class="">
+                    <img  class="imageClass" [lazyLoad]="item.image || '../../../assets/images/placeholder.png'">
+               </div>
+               <div class="mt-3 pe-2 ps-2 mb-4 textClass">
+                    {{item.name}}
+               </div>
+        </div>
+        <div id="endOfList"></div>
+</div>
+<!-- SHOW THE RESULT OF CHARACTERS LIST  -->
+
+<!-- SHOW THE NO RESULT FOUNT OF CHARACTERS LIST  -->
+<div class="marginSix p-4 d-flex align-items-center  justify-content-center flex-wrap" *ngIf="!(characterList && characterList.length)" >
+        <div class="noResult">
+            NO RESULT FOUND
+        </div>
+</div>
+<!-- SHOW THE NO RESULT FOUNT OF CHARACTERS LIST  -->
+
+<!-- SHOW GOLBAL LOADER OF APPLICATION  -->
+<div *ngIf="Referhloading" class="loaderDiv" >
+    <span class="loader"></span>
+</div>
+<!-- SHOW GOLBAL LOADER OF APPLICATION  -->
+
+
+<!-- SHOW LIST LOADER OF APPLICATION  -->
+<div *ngIf="loadDataLoader" class="marginSet d-flex justify-content-center align-items-center">
+    <span class="loader2"></span>
+</div>
+<!-- SHOW LIST LOADER OF APPLICATION  -->
+
+<!-- SHOW MOVE ICON  -->
+<div class="d-flex justify-content-end postionSet" (click)="moveUpYourWebsite()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13 20h-2V8l-5.5 5.5l-1.42-1.42L12 4.16l7.92 7.92l-1.42 1.42L13 8z"/></svg>
+</div>
+<!-- SHOW MOVE ICON  -->
+
+<p-toast></p-toast>
